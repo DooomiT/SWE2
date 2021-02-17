@@ -1,0 +1,168 @@
+@startuml A4.1
+skinparam classAttributeIconSize 0
+
+class Scanner {
+    + auflösung : Integer
+    - scanBreite : Integer
+    - scanHöhe : Integer
+    - scanFläche : Integer
+}
+
+@enduml
+
+@startuml A4.2
+skinparam classAttributeIconSize 0
+
+class Book {
+    kapitel : Abschnitt {ordered, unique}
+}
+
+@enduml
+
+@startuml A4.3
+skinparam classAttributeIconSize 0
+
+class Scanner {
+    scannen(in auflösung : Integer, inout linksOben : Point, inout rechtsUnten : Point) : Grafik
+}
+@enduml
+
+@startuml A4.4
+skinparam classAttributeIconSize 0
+
+class Computer {
+    taktfrequenz : Integer
+}
+
+class Speichereinheit {
+    volumen : Integer
+}
+
+class Eingabegerät
+class Ausgabegerät
+class Peripheriegerät
+class Maus
+class Tastatur
+
+Peripheriegerät <|--- Eingabegerät
+Peripheriegerät <|--- Ausgabegerät
+
+Eingabegerät <|--- Maus
+Eingabegerät <|--- Tastatur
+
+Computer "1" --> "1" Speichereinheit
+Computer "1" --> "1..*" Eingabegerät
+Computer "1" --> "0..*" Ausgabegerät
+
+@enduml
+
+@startuml A4.5
+skinparam classAttributeIconSize 0
+
+class Student
+class Vorlesung
+
+Student "5..*" -- "1..*" Vorlesung
+
+@enduml
+
+@startuml A4.6
+skinparam classAttributeIconSize 0
+
+class PKW
+class Motorrad
+Interface IRad <<Interface>> {
+    profiltiefe : Integer
+    umfang : Integer
+}
+class Rad
+class Reserverad
+
+IRad <|--- Rad
+IRad <|--- Reserverad
+
+PKW "1" *-- "4" Rad
+PKW "1" *-- "1" Reserverad
+
+Motorrad "1" *-- "2" Rad
+
+@enduml
+
+@startuml A4.7
+skinparam classAttributeIconSize 0
+
+class Student
+Interface Leistungsnachweis <<Interface>>
+Interface BenoteterLeistungsnachweis <<Interface>> {
+    note : Integer
+}
+class Praktikumsbescheinigung
+class Klausurergebnis
+class Testatergebnis
+class Bachelorarbeit
+class Seminarschein
+
+Leistungsnachweis <|--- BenoteterLeistungsnachweis
+
+BenoteterLeistungsnachweis <|... Klausurergebnis
+BenoteterLeistungsnachweis <|... Bachelorarbeit
+Leistungsnachweis <|... Praktikumsbescheinigung
+Leistungsnachweis <|... Testatergebnis
+Leistungsnachweis <|... Seminarschein
+
+Student "1" --> "1..*" Leistungsnachweis
+
+@enduml
+
+@startuml A4.8
+skinparam classAttributeIconSize 0
+
+class Medien
+class CD
+class Buch
+class Ausprägung <<Enumeration>> {
+    Gebunden
+    Taschenbuch
+    Heft
+}
+
+Medien <|--- CD
+Medien <|--- Buch
+Buch "1" --> "1" Ausprägung
+@enduml
+
+@startuml A4.9
+skinparam classAttributeIconSize 0
+
+class Layout 
+class FontTable
+Layout ..> FontTable
+@enduml
+
+@startuml A4.10
+skinparam classAttributeIconSize 0
+
+Interface CableSpec <<Interface>>
+class Kabel
+class Netzwerk
+
+CableSpec <|... Kabel
+Netzwerk ..> CableSpec
+@enduml
+
+@startuml A4.11
+skinparam classAttributeIconSize 0
+class Kabel
+class Netzwerk
+
+Kabel -0)- Netzwerk : CableSpec
+@enduml
+
+@startuml A4.12
+skinparam classAttributeIconSize 0
+
+class Layout {
+    orientation {id}
+}
+@enduml
+
