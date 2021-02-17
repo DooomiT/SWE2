@@ -1,0 +1,46 @@
+@startuml A5.1
+skinparam classAttributeIconSize 0
+object "__OOSE:Vorlesung__" as OOSE
+object "__GrundlagenDerMatheMatik:Vorlesung__" as GDM
+object "__GrundlagenDerElektrotechnik:Vorlesung__" as GDE
+object "__Hans:Student__" as Hans
+object "__Petra:Student__" as Petra
+
+Hans --> GDM
+Hans --> OOSE
+Petra --> GDE
+Petra --> OOSE
+@enduml
+
+@startuml A5.2
+skinparam classAttributeIconSize 0
+object "__p:PKW__" as PKW
+object "__vl:Rad__" as VL {
+    umfang = 195
+}
+object "__vr:Rad__" as VR {
+    umfang = 195
+}
+object "__hl:Rad__" as HL {
+    umfang = 195
+}
+object "__hr:Rad__" as HR {
+    umfang = 195
+}
+object "__r:Reserverad__" as R {
+    umfang = 195
+}
+
+PKW --> VL
+PKW --> VR
+PKW --> HL
+PKW --> HR
+PKW --> R
+
+
+@enduml
+
+@startuml A5.3
+skinparam classAttributeIconSize 0
+object "__Class Diagram 4 not found__" as tmp
+@enduml
